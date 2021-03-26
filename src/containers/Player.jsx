@@ -2,40 +2,41 @@ import bag from '../bag'
 import React, { useState, useEffect, useRef, useContext } from 'react';
 
 export default function Player() {
-    const tilesNeeded = useRef(7);
-    const hand = useRef([])
+
+    const [hand, setHand] = useState([])
+    const [draw, setDraw] = useState(7)
+    let currentHand = []
+    let tilesNeeded = 7
 
     useEffect(() => {
-        for (let i = 0; i < tilesNeeded.current; i++) {
-            let index = Math.floor(Math.random()) * bag.length
-            hand.current.push(bag[index])
-            bag[index].inBag = false
-            tilesNeeded.current -= 1
-            console.log(tilesNeeded.current)
+        for (let i = 0; i < draw; i++) {
+
+            let index = Math.floor(Math.random() * bag.length)
+            currentHand.push(bag[index])
+            tilesNeeded--
+            if (index !== -1) {
+                bag.splice(index, 1);
+            }
+
         }
-    }, [hand.current]);
+        setHand(currentHand)
+        setDraw(tilesNeeded)
 
 
-    console.log('hand', hand.current)
+    }, []);
 
-    // const renderHand = () => {
-    //     return hand.map(tile =>
-    //         <>
-    //             <div>{tile.letter}</div>
-    //             <div>{tile.value}</div>
-    //         </>
-    //     );
-    // };
+
+    const renderTiles = () => {
+        if (hand) {
+            return hand.map(tile =>
+                <div>{tile.letter} {tile.value}</div>
+            );
+        }
+    };
+
     return (
         <div>
-            {hand.current ? hand.current.map(tile =>
-
-                <>
-                    <div>{tile.letter}</div>
-                    <div>{tile.value}</div>
-                </>
-            )
-                : null}
+            { hand ? renderTiles() : null}
         </div>
     )
 }
