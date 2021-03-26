@@ -24,3 +24,5 @@ const boardMap = {
         'color': '#F37748'
     }
 }
+
+export default boardMap;

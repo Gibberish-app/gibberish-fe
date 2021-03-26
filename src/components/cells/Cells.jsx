@@ -1,12 +1,13 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
-const Cells = () => {
+const Cells = (props) => {
     const [letter, setLetter] = useState('');
     const [value, setValue] = useState(0);
 
     useEffect(() => {
         setValue(props.value)
     }, [props.value])
+
     return (
         <div 
             style={{ 
