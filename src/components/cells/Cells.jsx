@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import styles from '../../containers/style/Containers.css';
 
 const Cells = (props) => {
     const [letter, setLetter] = useState('');
@@ -9,13 +10,12 @@ const Cells = (props) => {
     }, [props.value])
 
     return (
-        <div 
+        <div className={styles.cells}
             style={{ 
                 backgroundColor: props.color, 
-                width: '4.4vw', 
-                height: '6vh', 
-                textAlign: 'center', 
-                verticalAlign: 'middle'}}>
+                width: '45px', 
+                height: '40px',
+                fontSize: props.fontSize}}>
             {letter || value}
         </div>
     )
