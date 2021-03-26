@@ -1,6 +1,12 @@
 import React from 'react';
-import Board from '../../containers/Board';
+import Player from '../../containers/Player'
+import Board from '../../containers/Board'
+
+
 
 export default function App() {
-  return <Board />;
+  return <>
+    <Player />
+    <Board />;
+  </>
 }
