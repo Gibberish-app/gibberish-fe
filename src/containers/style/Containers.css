@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Rockford;
+    src: url('./fonts/RockfordSans-Light.otf');
+}
+
+html {
+    font-family: Rockford;
+    font-size: 9pt;
+    font-weight: 900;
+}
+
+table {
+    background-color: #ECC30B;
+}

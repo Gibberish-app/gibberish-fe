@@ -12,8 +12,8 @@ const Cells = (props) => {
         <div 
             style={{ 
                 backgroundColor: props.color, 
-                width: '50px', 
-                height: '50px', 
+                width: '4.4vw', 
+                height: '6vh', 
                 textAlign: 'center', 
                 verticalAlign: 'middle'}}>
             {letter || value}
