@@ -3,7 +3,7 @@ import Draggable from 'react-draggable';
 import bag from './bag';
 import styles from './player.css';
 
-export default function Player() {
+export default function Player({setBag}) {
 
     const [hand, setHand] = useState([])
     const [draw, setDraw] = useState(7)
@@ -19,10 +19,10 @@ export default function Player() {
             if (index !== -1) {
                 bag.splice(index, 1);
             }
-
         }
         setHand(currentHand)
         setDraw(tilesNeeded)
+        setBag(bag.length)
     }, []);
 
     const renderTiles = () => {
