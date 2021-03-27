@@ -1,0 +1,60 @@
+.landing {
+    margin-top: 10%;
+    text-align: center;
+    letter-spacing: 1pt;
+}
+
+h1 {
+    font-size: 70pt;
+    color: #ECC30B;
+}
+
+h2 {
+    color: white;
+}
+
+.newButton, .submit {
+    margin-top: 10%;
+    padding: 7px;
+    background-color: #ECC30B;
+    color: #0A2239;
+    font-family: Rockford;
+    font-size: 20pt;
+    border: none;
+    border-radius: 5px;
+}
+
+.newButton:hover {
+    cursor: pointer;
+    color: white;
+    background-color: indianred;
+    transition-duration: 1s;
+}
+
+.radioButton {
+    display: none;
+}
+
+.icons {
+    margin: 5px;
+    padding: 10px;
+    height: 70px;
+}
+
+.create {
+    color: white;
+    font-size: 14pt;
+}
+
+.create input {
+    margin-bottom: 5vh;
+    width: 20%;
+    height: 1.5em;
+    font-family: Rockford;
+    font-size: 14pt;
+}
+
+label :checked + img {
+    border: solid 3px #ECC30B;
+    border-radius: 5px;
+}
