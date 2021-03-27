@@ -1,7 +1,7 @@
 .rack {
-    margin-top: 1%;
-    margin-left: 12%;
-    margin-bottom: 3%;
+    margin-top: 15px;
+    margin-left: 160px;
+    margin-bottom: 50px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -11,8 +11,8 @@
 
 .tile {
     margin: 5px;
-    height: 43px;
-    width: 45px;
+    height: 45px;
+    width: 47px;
     font-size: 20pt;
     text-align: center;
     padding-top: 2px;

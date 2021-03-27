@@ -45,7 +45,7 @@ const bag = [
         value: 1
     },
     {
-        letter: 'b',
+        letter: 'B',
         inBag: true,
         value: 1
     },

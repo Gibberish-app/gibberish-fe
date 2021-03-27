@@ -25,12 +25,12 @@ export default function Player() {
         setDraw(tilesNeeded)
     }, []);
 
-
     const renderTiles = () => {
         if (hand) {
             return hand.map(tile =>
-                <Draggable>
-                <div className={styles.tile}>
+                <Draggable
+                    grid={[5, 5]}>
+                <div id = 'gfg' className={styles.tile}>
                     <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span></div>
                 </Draggable>
             );
