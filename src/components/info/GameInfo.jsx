@@ -5,7 +5,7 @@ const GameInfo = (currentUser) => {
     return (
         <div className={styles.info}>
             <img src={`/avatars/${currentUser.currentUser.avatar}.png`} />
-            <p>{currentUser.currentUser.name}</p>
+            <span>{currentUser.currentUser.name}</span>
             <p>Score: </p>
         </div>
     )
