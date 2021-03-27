@@ -1,0 +1,18 @@
+.info {
+    position: absolute;
+    right: 3%;
+    top: 5%;
+    height: 80%;
+    width: 30vw;
+    color: #ECC30B;
+    text-align: center;
+    font-size: 20pt;
+    border: solid 5px indianred;
+    border-radius: 10px;
+}
+
+.info img {
+    margin-top: 5%;
+    margin-right: 5%;
+    height: 40px;
+}

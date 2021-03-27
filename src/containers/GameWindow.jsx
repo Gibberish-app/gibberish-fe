@@ -1,11 +1,14 @@
 import React, {useState, useRef} from 'react'
 import LandingPage from './LandingPage/LandingPage';
 import Board from '../components/board/Board';
-import Player from './Player';
+import Player from '../components/player/Player';
+import GameInfo from '../components/info/GameInfo';
 
 const GameWindow = () => {
     const [active, setActive] = useState(false);
-    const currentUser = useRef({});
+    const [currentUser, setCurrentUser] = useState({})
+
+    console.log(currentUser)
 
     const handleActive = () => {
         setActive(true);
@@ -16,12 +19,13 @@ const GameWindow = () => {
             {active ?
             <div>
                 <Board />
+                <GameInfo currentUser={currentUser} />
                 <Player />
             </div>
             :
             <LandingPage
                 handleActive={handleActive}
-                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
             />
             }
         </div>
