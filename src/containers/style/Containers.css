@@ -4,6 +4,7 @@
 }
 
 html {
+    margin: 0;
     font-family: Rockford;
     background-color: #0A2239;
     min-width: 1000px;
@@ -11,7 +12,7 @@ html {
 
 table {
     margin-left: 40px;
-    margin-top: 40px;
+    margin-top: 130px;
     background-color: #ECC30B;
 }
 
