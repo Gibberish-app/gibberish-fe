@@ -24,7 +24,7 @@ h2 {
     border-radius: 5px;
 }
 
-.newButton:hover {
+.newButton:hover, .submit:hover {
     cursor: pointer;
     color: white;
     background-color: indianred;

@@ -14,8 +14,6 @@ const GameWindow = () => {
         setActive(true);
     };
 
-    console.log(bag);
-
     return (
         <div>
             {active ?
