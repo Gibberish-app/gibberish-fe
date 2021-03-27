@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
+import Draggable from 'react-draggable';
 import bag from './bag';
 import styles from './player.css';
 
@@ -28,7 +29,10 @@ export default function Player() {
     const renderTiles = () => {
         if (hand) {
             return hand.map(tile =>
-                <div className={styles.tile}><span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span></div>
+                <Draggable>
+                <div className={styles.tile}>
+                    <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span></div>
+                </Draggable>
             );
         }
     };
