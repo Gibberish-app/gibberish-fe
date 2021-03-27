@@ -1,7 +1,7 @@
 import React from 'react';
-import Cells from '../components/cells/Cells';
-import boardMap from '../components/cells/boardMap';
-import './style/Containers.css';
+import Cells from '../cells/Cells';
+import boardMap from '../cells/boardMap';
+import '../../containers/style/Containers.css';
 
 const fullBoard = [
     [4, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 4],
