@@ -8,8 +8,6 @@ const GameWindow = () => {
     const [active, setActive] = useState(false);
     const [currentUser, setCurrentUser] = useState({})
 
-    console.log(currentUser)
-
     const handleActive = () => {
         setActive(true);
     };

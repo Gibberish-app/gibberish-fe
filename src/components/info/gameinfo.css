@@ -1,9 +1,9 @@
 .info {
     position: absolute;
-    right: 3%;
-    top: 5%;
+    margin-left: 850px;
+    top: 50px;
     height: 80%;
-    width: 30vw;
+    min-width: 350px;
     color: #ECC30B;
     text-align: center;
     font-size: 20pt;

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import styles from '../../containers/style/Containers.css';
 
 const Cells = (props) => {
-    const [letter, setLetter] = useState('');
     const [value, setValue] = useState(0);
 
     useEffect(() => {
@@ -16,7 +15,7 @@ const Cells = (props) => {
                 width: '45px', 
                 height: '40px',
                 fontSize: props.fontSize}}>
-            {letter || value}
+            {value}
         </div>
     )
 }

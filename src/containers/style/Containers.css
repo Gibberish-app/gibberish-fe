@@ -6,11 +6,12 @@
 html {
     font-family: Rockford;
     background-color: #0A2239;
+    min-width: 1000px;
 }
 
 table {
-    margin-left: 3%;
-    margin-top: 3%;
+    margin-left: 40px;
+    margin-top: 40px;
     background-color: #ECC30B;
 }
 
