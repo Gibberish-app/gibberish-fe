@@ -1,22 +1,31 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import RadioButton from './RadioButton';
 import styles from './LandingPage.css';
+import { socket } from '../../utils/socket/socket'
 
 const avatars = ['shuttle', 'alien', 'meteor', 'astronaut', 'planets', 'saturn']
 
-const CreateUser = ({ setCurrentUser, handleActive }) => {
+const CreateUser = ({ setCurrentUser, handleEnterLobby }) => {
     const [name, setName] = useState('');
     const [avatarChecked, setAvatarChecked] = useState('shuttle');
     // const [user, setCurrentUser] = useState(currentUser)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setCurrentUser({
-            name: name,
+
+        socket.emit("CREATE_USER", ({
+            userName: name,
             avatar: avatarChecked
-        })
-        handleActive()
+        }));
     }
+
+
+    useEffect(() => {
+        socket.on("USER_CREATED", user => {
+            setCurrentUser(user);
+            handleEnterLobby(user)
+        })
+    }, [socket])
 
     const handleAvatarChange = (avatarChecked) => {
         setAvatarChecked(avatarChecked)
@@ -41,7 +50,7 @@ const CreateUser = ({ setCurrentUser, handleActive }) => {
                             icon={icon}
                             handleAvatarChange={handleAvatarChange}
                             avatarChecked={avatarChecked}
-                            />
+                        />
                     })}
                 </div>
                 <button className={styles.submit}>Submit</button>
