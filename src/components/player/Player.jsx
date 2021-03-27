@@ -1,4 +1,4 @@
-import bag from '../bag'
+import bag from './bag'
 import React, { useState, useEffect, useRef, useContext } from 'react';
 
 export default function Player() {

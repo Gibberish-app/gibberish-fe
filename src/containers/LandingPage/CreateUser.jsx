@@ -4,12 +4,10 @@ import styles from './LandingPage.css';
 
 const avatars = ['shuttle', 'alien', 'meteor', 'astronaut', 'planets', 'saturn']
 
-const CreateUser = ({ currentUser, handleActive }) => {
+const CreateUser = ({ setCurrentUser, handleActive }) => {
     const [name, setName] = useState('');
     const [avatarChecked, setAvatarChecked] = useState('shuttle');
-    const [user, setCurrentUser] = useState(currentUser)
-
-    console.log(avatarChecked);
+    // const [user, setCurrentUser] = useState(currentUser)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -52,4 +50,4 @@ const CreateUser = ({ currentUser, handleActive }) => {
     )
 }
 
-export default CreateUser
+export default CreateUser;

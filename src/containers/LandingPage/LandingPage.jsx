@@ -3,12 +3,12 @@ import CreateUser from './CreateUser';
 import WelcomeScreen from './WelcomeScreen';
 import styles from './LandingPage.css';
 
-const LandingPage = ({ handleActive, currentUser }) => {
+const LandingPage = ({ handleActive, setCurrentUser }) => {
     
     const handleNewGame = () => {
         setDisplayScreen(<CreateUser
             handleActive={handleActive}
-            currentUser={currentUser}  />);
+            setCurrentUser={setCurrentUser}  />);
         }
 
     const [displayScreen, setDisplayScreen] = useState(<WelcomeScreen 
