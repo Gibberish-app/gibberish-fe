@@ -9,7 +9,6 @@ const GameWindow = () => {
     const [currentUser, setCurrentUser] = useState({})
     const [currentGame, setCurrentGame] = useState({})
 
-
     const handleActive = () => {
         setActive(true);
     };
