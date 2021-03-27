@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import RadioButton from './RadioButton';
+import styles from './LandingPage.css';
 
 const avatars = ['shuttle', 'alien', 'meteor', 'astronaut', 'planets', 'saturn']
 
@@ -7,6 +8,8 @@ const CreateUser = ({ currentUser, handleActive }) => {
     const [name, setName] = useState('');
     const [avatarChecked, setAvatarChecked] = useState('shuttle');
     const [user, setCurrentUser] = useState(currentUser)
+
+    console.log(avatarChecked);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,12 +20,12 @@ const CreateUser = ({ currentUser, handleActive }) => {
         handleActive()
     }
 
-    const handleAvatarChange = (icon) => {
-        setAvatarChecked(icon)
+    const handleAvatarChange = (avatarChecked) => {
+        setAvatarChecked(avatarChecked)
     }
 
     return (
-        <div>
+        <div className={styles.create}>
             <form onSubmit={handleSubmit}>
                 <p>Username:</p>
                 <input
@@ -43,7 +46,7 @@ const CreateUser = ({ currentUser, handleActive }) => {
                             />
                     })}
                 </div>
-                <button>Submit</button>
+                <button className={styles.submit}>Submit</button>
             </form>
         </div>
     )
