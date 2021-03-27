@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import CreateUser from './CreateUser';
 import WelcomeScreen from './WelcomeScreen';
+import styles from './LandingPage.css';
 
 const LandingPage = ({ handleActive, currentUser }) => {
     
@@ -15,7 +16,7 @@ const LandingPage = ({ handleActive, currentUser }) => {
         />)
         
     return (
-        <div>
+        <div className={styles.landing}>
             {displayScreen}
         </div>
     )
