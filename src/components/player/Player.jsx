@@ -1,5 +1,6 @@
-import bag from './bag'
 import React, { useState, useEffect, useRef, useContext } from 'react';
+import bag from './bag';
+import styles from './player.css';
 
 export default function Player() {
 
@@ -21,21 +22,19 @@ export default function Player() {
         }
         setHand(currentHand)
         setDraw(tilesNeeded)
-
-
     }, []);
 
 
     const renderTiles = () => {
         if (hand) {
             return hand.map(tile =>
-                <div>{tile.letter} {tile.value}</div>
+                <div className={styles.tile}><span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span></div>
             );
         }
     };
 
     return (
-        <div>
+        <div className={styles.rack}>
             { hand ? renderTiles() : null}
         </div>
     )

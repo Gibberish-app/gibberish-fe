@@ -1,0 +1,24 @@
+.rack {
+    margin-top: 1%;
+    margin-left: 12%;
+    margin-bottom: 3%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 500px;
+    background-color: indianred;
+}
+
+.tile {
+    margin: 5px;
+    height: 43px;
+    width: 45px;
+    font-size: 20pt;
+    text-align: center;
+    padding-top: 2px;
+    background-color: #ECC30B;
+}
+
+.value {
+    font-size: 10pt;
+}
