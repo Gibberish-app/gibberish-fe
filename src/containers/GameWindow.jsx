@@ -3,6 +3,7 @@ import LandingPage from './LandingPage/LandingPage';
 import Board from '../components/board/Board';
 import Player from '../components/player/Player';
 import GameInfo from '../components/info/GameInfo';
+import Header from '../components/header/Header';
 
 const GameWindow = () => {
     const [active, setActive] = useState(false);
@@ -16,6 +17,7 @@ const GameWindow = () => {
         <div>
             {active ?
             <div>
+                <Header />
                 <Board />
                 <GameInfo currentUser={currentUser} />
                 <Player />
