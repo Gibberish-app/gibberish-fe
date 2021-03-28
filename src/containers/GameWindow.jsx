@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+
+import React, { useState, useRef, useEffect } from 'react'
 import LandingPage from './LandingPage/LandingPage';
 import Board from '../components/board/Board';
 import Player from '../components/player/Player';
@@ -7,9 +8,10 @@ import Header from '../components/header/Header';
 
 const GameWindow = () => {
     const [active, setActive] = useState(false);
+    const [bag, setBag] = useState(0)
     const [currentUser, setCurrentUser] = useState({})
     const [currentGame, setCurrentGame] = useState({})
-
+    const [spotPosition, setSpotPosition] = useState([])
     const handleActive = () => {
         setActive(true);
     };
@@ -20,12 +22,12 @@ const GameWindow = () => {
                 <div>
                     <Header />
                     <Board
-
-                    />
+                        setSpotPosition={setSpotPosition} />
                     <GameInfo
                         currentUser={currentUser}
-                        currentGame={currentGame} />
-                    <Player currentGame={currentGame} />
+                        currentGame={currentGame}
+                        bag={bag} />
+                    <Player setBag={setBag} />
                 </div>
                 :
                 <LandingPage

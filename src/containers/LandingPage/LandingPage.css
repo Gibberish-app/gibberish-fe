@@ -13,7 +13,7 @@ h2 {
     color: white;
 }
 
-.newButton, .submit {
+.newButton, .submit, .newGame {
     margin-top: 10%;
     padding: 7px;
     background-color: #ECC30B;
@@ -24,7 +24,7 @@ h2 {
     border-radius: 5px;
 }
 
-.newButton:hover, .submit:hover {
+.newButton:hover, .submit:hover, .newGame:hover {
     cursor: pointer;
     color: white;
     background-color: indianred;
@@ -57,4 +57,10 @@ h2 {
 label :checked + img {
     border: solid 3px #ECC30B;
     border-radius: 5px;
+}
+
+.waiting {
+    margin-top: 50px;
+    font-size: 30pt;
+    color: indianred;
 }

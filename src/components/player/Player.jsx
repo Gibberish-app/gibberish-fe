@@ -5,6 +5,7 @@ import styles from './player.css';
 export default function Player({ currentGame }) {
     const { bag } = currentGame;
     const hand = useRef([])
+
     const [draw, setDraw] = useState(7)
     let currentHand = []
     let tilesNeeded = 7
@@ -30,27 +31,13 @@ export default function Player({ currentGame }) {
         drawTiles(7)
     }, []);
 
-    const moveTile = () => {
-        console.log(hand)
-    }
-
     const handleStop = (e, tile, index) => {
         let x = e.x - 76;
         let y = e.y - 150;
 
         if (x % 46 !== 0) {
             x = x - (x % 46)
-        }
 
-        if (y % 46 !== 0) {
-            y = y - (y % 46)
-        }
-
-        hand.current[index].position = { x, y }
-
-        console.log(hand.current[index])
-
-    }
 
     const draggableHand = (currentHand) => {
         return currentHand.map((tile, index) =>

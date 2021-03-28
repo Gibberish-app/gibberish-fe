@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { socket } from '../../utils/socket/socket';
 import GameLI from '../../components/GameLI/GameLI'
-
+import styles from './LandingPage.css'
 
 export default function Lobby({ handleActive, currentUser, setCurrentGame }) {
     const [gameList, setGameList] = useState([])
@@ -37,10 +37,12 @@ export default function Lobby({ handleActive, currentUser, setCurrentGame }) {
     return (
         <div>
             <button
+                className={styles.newGame}
                 onClick={createGame}>
-                CREATE GAME
+                CREATE NEW GAME
             </button>
-            <ul>
+            <div>
+                <p className={styles.waiting}>Waiting For Players:</p>
                 {gameList.length > 0 ?
                     gameList.map((game, index) => (
                         <GameLI
@@ -52,7 +54,7 @@ export default function Lobby({ handleActive, currentUser, setCurrentGame }) {
                     )
                     : null
                 }
-            </ul>
+            </div>
         </div>
     )
 
