@@ -21,6 +21,7 @@ export default function Player({ currentGame, addTile }) {
             }
         }
 
+
         setHand(currentHand)
         setDraw(tilesNeeded)
     }
@@ -36,11 +37,13 @@ export default function Player({ currentGame, addTile }) {
 
     const renderTiles = () => {
         if (hand) {
+
             return hand.map((tile, index) =>
                 <div className={styles.tile}
                     onClick={() => handleTileClick(tile, index)}>
                     <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span>
                 </div >
+
             );
         }
     };
