@@ -17,6 +17,7 @@ const GameWindow = () => {
     const [currentHand, setCurrentHand] = useState([])
     const [gameOver, setGameOver] = useState(false)
     const [waiting, setWaiting] = useState(false)
+    const [width, setWidth] = useState('100%')
     const secondWaiting = useRef(false)
 
 
@@ -29,11 +30,11 @@ const GameWindow = () => {
         secondWaiting.current = !secondWaiting.current;
         console.log("🚀 ~ file: GameWindow.jsx ~ line 25 ~ toggleWaiting ~ newWaiting", newWaiting)
         setWaiting(newWaiting);
+
     }
 
     const handleCurrentGame = (newGame) => {
         currentGame.current = newGame;
-
         if (newGame.users[1].socketId === currentUser.socketId) {
             toggleWaiting();
         }
@@ -66,10 +67,9 @@ const GameWindow = () => {
     const handleSubmit = () => {
         if (!waiting) {
             socket.emit("CHECK_WORD", ({ tileArray: currentPlay, gameState: currentGame.current }))
+            setWidth('875px')
         }
     }
-
-
 
     useEffect(() => {
         socket.on("WORD_CHECKED", response => {
@@ -123,7 +123,7 @@ const GameWindow = () => {
             }
             {waiting ?
                 <div>
-                    <WaitingPopup />
+                    <WaitingPopup width={width} />
                 </div>
                 : null
             }
