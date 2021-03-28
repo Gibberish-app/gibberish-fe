@@ -8,16 +8,19 @@ import Header from '../components/header/Header';
 
 const GameWindow = () => {
     const [active, setActive] = useState(false);
-    const [bag, setBag] = useState(0)
     const [currentUser, setCurrentUser] = useState({})
     const [currentGame, setCurrentGame] = useState({})
-    const [spotPosition, setSpotPosition] = useState([])
+    const [currentPlay, setCurrentPlay] = useState([])
 
     const handleActive = () => {
         setActive(true);
     };
 
-    console.log(spotPosition[0])
+    const addTile = (tile) => {
+        setCurrentPlay([...currentPlay, tile])
+        console.log(tile)
+    }
+
 
     return (
         <div>
@@ -25,12 +28,14 @@ const GameWindow = () => {
                 <div>
                     <Header />
                     <Board
-                        setSpotPosition={setSpotPosition} />
+                        currentPlay={currentPlay} />
                     <GameInfo
                         currentUser={currentUser}
+                        currentGame={currentGame} />
+                    <Player
                         currentGame={currentGame}
-                        bag={bag} />
-                    <Player setBag={setBag} />
+                        addTile={addTile}
+                    />
                 </div>
                 :
                 <LandingPage
