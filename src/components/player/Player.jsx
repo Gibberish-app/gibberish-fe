@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { socket } from '../../utils/socket/socket';
 import styles from './player.css';
 
-export default function Player({ currentGame, addTile, currentHand, seedHand, handleSubmit }) {
+export default function Player({ currentGame, addTile, currentHand, seedHand, handleSubmit, waiting }) {
     const { bag } = currentGame.current;
 
     const drawTiles = (tilesNeeded) => {
@@ -22,12 +22,18 @@ export default function Player({ currentGame, addTile, currentHand, seedHand, ha
         addTile(tile, index);
     }
 
+    // useEffect(() => {
+    //     drawTiles(7)
+    // }, [])
+
+
     useEffect(() => {
-        drawTiles(7)
-    }, [])
-
-
-
+        console.log('waiting changed')
+        if (waiting === false) {
+            const tilesNeeded = 7 - currentHand.length;
+            drawTiles(tilesNeeded)
+        }
+    }, [waiting])
 
     const renderTiles = () => {
         if (currentHand) {

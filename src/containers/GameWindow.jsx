@@ -63,6 +63,8 @@ const GameWindow = () => {
         }
     }
 
+
+
     useEffect(() => {
         socket.on("WORD_CHECKED", response => {
             window.alert(response)
@@ -95,6 +97,7 @@ const GameWindow = () => {
                         currentHand={currentHand}
                         seedHand={seedHand}
                         handleSubmit={handleSubmit}
+                        waiting={waiting}
                     />
                 </div>
                 :
