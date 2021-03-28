@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import styles from './gameover.css';
 
 export default function GameOver({ currentGame }) {
 
@@ -7,14 +8,16 @@ export default function GameOver({ currentGame }) {
     }
 
     return (
-        <div styles={{ height: '100vh', width: '100vw' }}>
+        <div className={styles.gameOver}>
 
-            <p>GAME OVER!</p>
+            <h6 className={styles.overText}>GAME OVER!</h6>
 
             <img src={`/avatars/${currentGame.current.users[0].avatar}.png`} />
             <span>{currentGame.current.users[0].userName}</span>
             <p>Score: {currentGame.current.users[0].score}</p>
+            <br />
             <p>VS.</p>
+            <br />
             <img src={`/avatars/${currentGame.current.users[1].avatar}.png`} />
             <span>{currentGame.current.users[1].userName}</span>
             <p>Score: {currentGame.current.users[1].score}</p>
