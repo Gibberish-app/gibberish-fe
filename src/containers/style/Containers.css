@@ -11,13 +11,13 @@ html {
 }
 
 .board {
-    width: 700px;
+    width: 850px;
     height: 275px;
     border: solid 1px transparent;
 }
 
 table {
-    margin-left: 240px;
+    margin-left: 225px;
     margin-top: 200px;
 }
 

@@ -4,11 +4,6 @@ import boardMap from '../cells/boardMap';
 import styles from '../../containers/style/Containers.css';
 
 const Board = ({ currentPlay }) => {
-    // const boardTilePosition = []
-
-    // useEffect(() => {
-    //     console.log(currentPlay)
-    // }, [currentPlay])
 
     return (
         <div className={styles.board}>
