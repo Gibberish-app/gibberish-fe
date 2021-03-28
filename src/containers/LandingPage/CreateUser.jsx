@@ -5,10 +5,9 @@ import { socket } from '../../utils/socket/socket'
 
 const avatars = ['shuttle', 'alien', 'meteor', 'astronaut', 'planets', 'saturn']
 
-const CreateUser = ({ setCurrentUser, handleEnterLobby }) => {
+const CreateUser = ({ currentUser, handleEnterLobby }) => {
     const [name, setName] = useState('');
     const [avatarChecked, setAvatarChecked] = useState('shuttle');
-    // const [user, setCurrentUser] = useState(currentUser)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,7 +20,7 @@ const CreateUser = ({ setCurrentUser, handleEnterLobby }) => {
 
     useEffect(() => {
         socket.on("USER_CREATED", user => {
-            setCurrentUser(user);
+            currentUser.current = user;
             handleEnterLobby(user)
         })
     }, [socket])

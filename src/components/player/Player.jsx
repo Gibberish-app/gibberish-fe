@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { socket } from '../../utils/socket/socket';
 import styles from './player.css';
 
-export default function Player({ currentGame, addTile, currentHand, seedHand }) {
-    const { bag } = currentGame;
+export default function Player({ currentGame, addTile, currentHand, seedHand, handleSubmit }) {
+    const { bag } = currentGame.current;
 
     const drawTiles = (tilesNeeded) => {
         const localHand = [];
@@ -25,15 +26,15 @@ export default function Player({ currentGame, addTile, currentHand, seedHand }) 
         drawTiles(7)
     }, [])
 
-    const handleSubmit = () => {
-        console.log("SUBMIT!")
-    }
+
+
 
     const renderTiles = () => {
         if (currentHand) {
             return currentHand.map((tile, index) =>
                 <div className={styles.tile}
-                    onClick={() => handleTileClick(tile, index)}>
+                    onClick={() => handleTileClick(tile, index)}
+                    key={`hand${index}`}>
                     <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span>
                 </div >
             );
@@ -47,7 +48,10 @@ export default function Player({ currentGame, addTile, currentHand, seedHand }) 
                     {currentHand ? renderTiles() : null}
                 </div>
             </div>
-            <button className={styles.submit}>Submit Word</button>
+            <button
+                className={styles.submit}
+                onClick={handleSubmit}
+            >Submit Word</button>
         </div>
     )
 }

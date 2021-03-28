@@ -9,12 +9,15 @@ const Board = ({ currentPlay, removeTile }) => {
         <div className={styles.board}>
             <table>
                 <tbody>
-                    {currentPlay.map((tile, index) =>
-                        <td
-                            onClick={() => { removeTile(tile, index) }}>
-                            {tile.letter}<sub className={styles.value}>{tile.value}</sub>
-                        </td>
-                    )}
+                    <tr>
+                        {currentPlay.map((tile, index) =>
+                            <td
+                                onClick={() => { removeTile(tile, index) }}
+                                key={`tile${index}`}>
+                                {tile.letter}<sub className={styles.value}>{tile.value}</sub>
+                            </td>
+                        )}
+                    </tr>
                 </tbody>
             </table>
         </div>
