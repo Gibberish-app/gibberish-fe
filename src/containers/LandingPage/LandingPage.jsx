@@ -5,7 +5,7 @@ import styles from './LandingPage.css';
 import Lobby from './Lobby';
 import Header from '../../components/header/Header';
 
-const LandingPage = ({ handleActive, setCurrentUser, setCurrentGame, currentUser }) => {
+const LandingPage = ({ handleActive, setCurrentUser, setCurrentGame }) => {
 
     const handleEnterLobby = (user) => {
         setDisplayScreen(<Lobby

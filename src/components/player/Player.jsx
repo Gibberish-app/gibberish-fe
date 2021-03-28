@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import Draggable from 'react-draggable';
-import bag from './bag';
 import styles from './player.css';
 
-export default function Player({ setBag }) {
+export default function Player({ currentGame }) {
+    const { bag } = currentGame;
+    const hand = useRef([])
 
-    const [hand, setHand] = useState([])
     const [draw, setDraw] = useState(7)
     let currentHand = []
     let tilesNeeded = 7
 
-    useEffect(() => {
+
+    const drawTiles = (tilesNeeded) => {
         for (let i = 0; i < draw; i++) {
 
             let index = Math.floor(Math.random() * bag.length)
@@ -22,8 +23,12 @@ export default function Player({ setBag }) {
         }
         
         setHand(currentHand)
+
         setDraw(tilesNeeded)
-        setBag(bag.length)
+    }
+
+    useEffect(() => {
+        drawTiles(7)
     }, []);
 
     const renderTiles = () => {
@@ -40,7 +45,7 @@ export default function Player({ setBag }) {
 
     return (
         <div className={styles.rack}>
-            { hand ? renderTiles() : null}
+            { hand.current ? hand.current : null}
         </div>
     )
 }
