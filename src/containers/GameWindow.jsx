@@ -11,14 +11,28 @@ const GameWindow = () => {
     const [currentUser, setCurrentUser] = useState({})
     const [currentGame, setCurrentGame] = useState({})
     const [currentPlay, setCurrentPlay] = useState([])
+    const [currentHand, setCurrentHand] = useState([])
 
     const handleActive = () => {
         setActive(true);
+
     };
 
-    const addTile = (tile) => {
+    const addTile = (tile, index) => {
+        currentHand.splice(index, 1)
+
+        setCurrentHand(currentHand)
         setCurrentPlay([...currentPlay, tile])
-        console.log(tile)
+    }
+
+    const removeTile = (tile, index) => {
+        currentPlay.splice(index, 1)
+        setCurrentPlay(currentPlay);
+        setCurrentHand([...currentHand, tile])
+    }
+
+    const seedHand = (tileArray) => {
+        setCurrentHand([...currentHand, ...tileArray])
     }
 
     return (
@@ -27,13 +41,17 @@ const GameWindow = () => {
                 <div>
                     <Header />
                     <Board
-                        currentPlay={currentPlay} />
+                        currentPlay={currentPlay}
+                        removeTile={removeTile}
+                    />
                     <GameInfo
                         currentUser={currentUser}
                         currentGame={currentGame} />
                     <Player
                         currentGame={currentGame}
                         addTile={addTile}
+                        currentHand={currentHand}
+                        seedHand={seedHand}
                     />
                 </div>
                 :
