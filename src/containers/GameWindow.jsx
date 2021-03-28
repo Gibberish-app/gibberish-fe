@@ -6,6 +6,7 @@ import Player from '../components/player/Player';
 import GameInfo from '../components/info/GameInfo';
 import Header from '../components/header/Header';
 import WaitingPopup from '../components/WaitingPopup/WaitingPopup'
+import GameOver from '../components/GameOver/GameOver'
 import { socket } from '../utils/socket/socket';
 
 const GameWindow = () => {
@@ -14,6 +15,7 @@ const GameWindow = () => {
     const currentGame = useRef({})
     const [currentPlay, setCurrentPlay] = useState([])
     const [currentHand, setCurrentHand] = useState([])
+    const [gameOver, setGameOver] = useState(false)
     const [waiting, setWaiting] = useState(false)
     const [width, setWidth] = useState('100%')
     const secondWaiting = useRef(false)
@@ -81,29 +83,38 @@ const GameWindow = () => {
             toggleWaiting();
             console.log("🚀 ~ file: GameWindow.jsx ~ line 76 ~ useEffect ~ secondWaiting.current", secondWaiting.current)
         })
+
+        socket.on("GAME_OVER", ({ updatedGame, lastPlayed }) => {
+            console.log('GAME_OVER');
+            setGameOver(true);
+
+        })
+
     }, [socket])
 
     return (
         <div>
             {active ?
-                <div>
-                    <Header />
-                    <Board
-                        currentPlay={currentPlay}
-                        removeTile={removeTile}
-                    />
-                    <GameInfo
-                        currentGame={currentGame} />
-                    <Player
-                        currentGame={currentGame}
-                        addTile={addTile}
-                        currentHand={currentHand}
-                        seedHand={seedHand}
-                        clearPlay={clearPlay}
-                        handleSubmit={handleSubmit}
-                        waiting={waiting}
-                    />
-                </div>
+                gameOver ? <GameOver
+                    currentGame={currentGame} /> :
+                    <div>
+                        <Header />
+                        <Board
+                            currentPlay={currentPlay}
+                            removeTile={removeTile}
+                        />
+                        <GameInfo
+                            currentGame={currentGame} />
+                        <Player
+                            currentGame={currentGame}
+                            addTile={addTile}
+                            currentHand={currentHand}
+                            seedHand={seedHand}
+                            clearPlay={clearPlay}
+                            handleSubmit={handleSubmit}
+                            waiting={waiting}
+                        />
+                    </div>
                 :
                 <LandingPage
                     handleActive={handleActive}
@@ -112,6 +123,7 @@ const GameWindow = () => {
                     handleCurrentGame={handleCurrentGame}
                     toggleWaiting={toggleWaiting}
                 />
+
             }
             {waiting ?
                 <div>
