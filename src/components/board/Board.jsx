@@ -21,12 +21,11 @@ const Board = ({ setSpotPosition }) => {
                     {fullBoard.map(row =>
                         <tr>
                             {row.map(col => <td
-
                                 ref={row => {
                                     if (!row) return;
                                     boardTilePosition.push(row.getBoundingClientRect());
                                 }
-                                }>{Cells(boardMap[col])}</td>)}
+                                }>{Cells()}</td>)}
                         </tr>
                     )}
                 </tbody>
