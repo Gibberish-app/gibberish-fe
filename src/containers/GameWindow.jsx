@@ -15,6 +15,8 @@ const GameWindow = () => {
     const [currentPlay, setCurrentPlay] = useState([])
     const [currentHand, setCurrentHand] = useState([])
     const [waiting, setWaiting] = useState(false)
+    const secondWaiting = useRef(true)
+
 
     const handleActive = () => {
         setActive(true);
@@ -22,16 +24,15 @@ const GameWindow = () => {
 
     const toggleWaiting = () => {
         const newWaiting = !waiting;
+        secondWaiting.current = !secondWaiting.current;
         console.log("🚀 ~ file: GameWindow.jsx ~ line 25 ~ toggleWaiting ~ newWaiting", newWaiting)
         setWaiting(newWaiting);
     }
 
     const handleCurrentGame = (newGame) => {
         currentGame.current = newGame;
-        console.log("🚀 ~ file: GameWindow.jsx ~ line 32 ~ handleCurrentGame ~ newGame.users[0].socketId ", newGame.users[0].socketId)
-        console.log("🚀 ~ file: GameWindow.jsx ~ line 33 ~ handleCurrentGame ~ currentUser.socketId", currentUser.current)
 
-        if (newGame.users[0].socketId === currentUser.socketId) {
+        if (newGame.users[1].socketId === currentUser.socketId) {
             toggleWaiting();
         }
     }
@@ -70,7 +71,9 @@ const GameWindow = () => {
         socket.on("WORD_PLAYED", updatedGame => {
             console.log('WORD_PLAYED')
             currentGame.current = updatedGame;
-            toggleWaiting();
+            setActive(true);
+            setWaiting(secondWaiting.current)
+            console.log("🚀 ~ file: GameWindow.jsx ~ line 76 ~ useEffect ~ secondWaiting.current", secondWaiting.current)
         })
 
     }, [socket])
