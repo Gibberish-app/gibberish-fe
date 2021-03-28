@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import styles from './waiting.css';
 
-export default function WaitingPopup() {
-
+export default function WaitingPopup(width) {
     return (
-        <div
-            style={{ height: '500px', width: '500px', position: 'absolute', backgroundColor: "white" }}>
-            <p>WAITING!</p>
+        <div 
+            className={styles.waiting}
+            style={{ 
+            width: width.width }}>
+            <p>WAITING...</p>
         </div>
     )
 }
