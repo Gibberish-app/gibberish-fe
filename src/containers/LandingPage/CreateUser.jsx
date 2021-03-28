@@ -19,7 +19,6 @@ const CreateUser = ({ setCurrentUser, handleEnterLobby }) => {
         }));
     }
 
-
     useEffect(() => {
         socket.on("USER_CREATED", user => {
             setCurrentUser(user);
