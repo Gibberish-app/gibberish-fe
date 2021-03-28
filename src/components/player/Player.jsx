@@ -48,7 +48,7 @@ export default function Player({ currentGame, addTile }) {
     };
 
     return (
-        <div>
+        <div className={styles.player}>
             <div className={styles.rackBoard}>
                 <div className={styles.rack}>
                     {hand ? renderTiles() : null}

@@ -1,6 +1,8 @@
 .rackBoard {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 15px;
-    margin-left: 190px;
     margin-bottom: 50px;
     width: 500px;
     height: 60px;
@@ -25,4 +27,28 @@
 
 .value {
     font-size: 10pt;
+}
+
+.submit {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px;
+    background-color: #ECC30B;
+    color: #0A2239;
+    font-family: Rockford;
+    font-size: 20pt;
+    border: none;
+    border-radius: 5px;
+}
+
+.submit:hover {
+    cursor: pointer;
+    color: white;
+    background-color: indianred;
+    transition-duration: 1s;
+}
+
+.player {
+    width: 850px;
 }
