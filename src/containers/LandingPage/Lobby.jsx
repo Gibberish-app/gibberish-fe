@@ -41,7 +41,8 @@ export default function Lobby({ handleActive, currentUser, setCurrentGame }) {
                 onClick={createGame}>
                 CREATE NEW GAME
             </button>
-            <ul>
+            <div>
+                <p className={styles.waiting}>Waiting For Players:</p>
                 {gameList.length > 0 ?
                     gameList.map((game, index) => (
                         <GameLI
@@ -53,7 +54,7 @@ export default function Lobby({ handleActive, currentUser, setCurrentGame }) {
                     )
                     : null
                 }
-            </ul>
+            </div>
         </div>
     )
 

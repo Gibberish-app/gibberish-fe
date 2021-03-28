@@ -58,3 +58,9 @@ label :checked + img {
     border: solid 3px #ECC30B;
     border-radius: 5px;
 }
+
+.waiting {
+    margin-top: 50px;
+    font-size: 30pt;
+    color: indianred;
+}
