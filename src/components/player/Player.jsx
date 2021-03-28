@@ -3,7 +3,7 @@ import Draggable from 'react-draggable';
 import bag from './bag';
 import styles from './player.css';
 
-export default function Player({setBag}) {
+export default function Player({ setBag }) {
 
     const [hand, setHand] = useState([])
     const [draw, setDraw] = useState(7)
@@ -30,8 +30,8 @@ export default function Player({setBag}) {
             return hand.map(tile =>
                 <Draggable
                     grid={[5, 5]}>
-                <div id = 'gfg' className={styles.tile}>
-                    <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span></div>
+                    <div id='gfg' className={styles.tile}>
+                        <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span></div>
                 </Draggable>
             );
         }
