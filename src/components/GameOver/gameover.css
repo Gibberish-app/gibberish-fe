@@ -1,0 +1,39 @@
+.gameOver {
+    text-align: center;
+    color: #ECC30B;
+}
+
+.overText {
+    font-size: 40pt;
+}
+
+.gameOver p {
+    font-size: 20pt;
+}
+
+.gameOver img {
+    margin-right: 10px;
+    height: 40px;
+}
+
+.gameOver span {
+    font-size: 30pt;
+}
+
+.gameOver button {
+    margin-bottom: 40px;
+    padding: 7px;
+    background-color: #ECC30B;
+    color: #0A2239;
+    font-family: Rockford;
+    font-size: 20pt;
+    border: none;
+    border-radius: 5px;
+}
+
+.gameOver button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: indianred;
+    transition-duration: 1s;
+}
