@@ -21,7 +21,6 @@ const GameWindow = () => {
         console.log(tile)
     }
 
-
     return (
         <div>
             {active ?
