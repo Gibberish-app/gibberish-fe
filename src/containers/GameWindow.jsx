@@ -12,9 +12,12 @@ const GameWindow = () => {
     const [currentUser, setCurrentUser] = useState({})
     const [currentGame, setCurrentGame] = useState({})
     const [spotPosition, setSpotPosition] = useState([])
+
     const handleActive = () => {
         setActive(true);
     };
+
+    console.log(spotPosition[0])
 
     return (
         <div>

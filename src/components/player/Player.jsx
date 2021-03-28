@@ -21,9 +21,9 @@ export default function Player({ currentGame }) {
                 bag.splice(index, 1);
             }
         }
-        const newHand = draggableHand(currentHand)
-        console.log(newHand)
-        hand.current = newHand;
+        
+        setHand(currentHand)
+
         setDraw(tilesNeeded)
     }
 
@@ -31,27 +31,17 @@ export default function Player({ currentGame }) {
         drawTiles(7)
     }, []);
 
-    const handleStop = (e, tile, index) => {
-        let x = e.x - 76;
-        let y = e.y - 150;
-
-        if (x % 46 !== 0) {
-            x = x - (x % 46)
-
-
-    const draggableHand = (currentHand) => {
-        return currentHand.map((tile, index) =>
-            <Draggable
-                grid={[5, 5]}
-                onStop={(e) => handleStop(e, tile, index, currentHand)}
-            >
-                <div id='gfg' className={styles.tile}>
-                    <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span></div>
-            </Draggable>
-        );
-    }
-
-
+    const renderTiles = () => {
+        if (hand) {
+            return hand.map(tile =>
+                <Draggable
+                    grid={[5, 5]}>
+                    <div className={styles.tile}>
+                        <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span></div>
+                </Draggable>
+            );
+        }
+    };
 
     return (
         <div className={styles.rack}>
