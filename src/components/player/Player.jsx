@@ -8,11 +8,12 @@ export default function Player({ currentGame, addTile, currentHand, seedHand, ha
     const drawTiles = (tilesNeeded) => {
         const localHand = [];
         for (let i = 0; i < tilesNeeded; i++) {
-
-            let index = Math.floor(Math.random() * bag.length)
-            localHand.push(bag[index])
-            if (index !== -1) {
-                bag.splice(index, 1);
+            if (bag.length > 0) {
+                let index = Math.floor(Math.random() * bag.length)
+                localHand.push(bag[index])
+                if (index !== -1) {
+                    bag.splice(index, 1);
+                }
             }
         }
         seedHand(localHand)
