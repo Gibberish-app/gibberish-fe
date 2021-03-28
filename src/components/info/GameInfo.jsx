@@ -18,4 +18,4 @@ const GameInfo = ({ currentGame }) => {
     )
 }
 
-export default GameInfo
+export default GameInfo;

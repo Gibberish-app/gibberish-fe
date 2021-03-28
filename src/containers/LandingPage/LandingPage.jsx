@@ -3,7 +3,6 @@ import CreateUser from './CreateUser';
 import WelcomeScreen from './WelcomeScreen';
 import styles from './LandingPage.css';
 import Lobby from './Lobby';
-import Header from '../../components/header/Header';
 
 const LandingPage = ({ handleActive, currentUser, handleCurrentGame, toggleWaiting, currentGame }) => {
 

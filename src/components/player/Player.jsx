@@ -24,7 +24,6 @@ export default function Player({ currentGame, addTile, currentHand, seedHand, ha
     }
 
     useEffect(() => {
-        console.log('waiting changed')
         if (waiting === false) {
             const tilesNeeded = 7 - currentHand.length;
             drawTiles(tilesNeeded)

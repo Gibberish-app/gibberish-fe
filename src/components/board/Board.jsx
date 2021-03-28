@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import Cells from '../cells/Cells';
-import boardMap from '../cells/boardMap';
+import React from 'react';
 import styles from '../../containers/style/Containers.css';
 
 const Board = ({ currentPlay, removeTile }) => {

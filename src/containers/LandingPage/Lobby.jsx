@@ -16,12 +16,10 @@ export default function Lobby({ handleActive, currentUser, currentGame, handleCu
         });
 
         socket.on("GAME_CREATED", newGame => {
-            console.log("🚀 ~ file: Lobby.jsx ~ line 24 ~ useEffect ~ newGame ", newGame)
             toggleWaiting();
         })
 
         socket.on("PLAYER_JOINED", newGame => {
-            console.log(newGame)
             currentGame.current = newGame
             handleCurrentGame(newGame);
             handleActive();
