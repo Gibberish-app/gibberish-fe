@@ -1,15 +1,14 @@
 import React from 'react';
-
+import styles from './gameli.css';
 
 export default function GameLI({ game, handleJoinGame }) {
 
     return (
-        <li
+        <div
+            className={styles.gameli}
             onClick={() => handleJoinGame(game.gameId)}>
-
-            {game.users[0].userName}
-
             <img src={`/avatars/${game.users[0].avatar}.png`} />
-        </li>
+            <span>{game.users[0].userName}</span>
+        </div>
     )
 }
