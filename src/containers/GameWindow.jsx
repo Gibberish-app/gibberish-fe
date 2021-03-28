@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import LandingPage from './LandingPage/LandingPage';
 import Board from '../components/board/Board';
 import Player from '../components/player/Player';
@@ -19,11 +19,13 @@ const GameWindow = () => {
             {active ?
                 <div>
                     <Header />
-                    <Board />
+                    <Board
+
+                    />
                     <GameInfo
                         currentUser={currentUser}
                         currentGame={currentGame} />
-                    <Player setBag={setBag} />
+                    <Player currentGame={currentGame} />
                 </div>
                 :
                 <LandingPage
