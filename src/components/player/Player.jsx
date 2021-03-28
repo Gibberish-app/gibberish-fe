@@ -20,6 +20,7 @@ export default function Player({ setBag }) {
                 bag.splice(index, 1);
             }
         }
+        
         setHand(currentHand)
         setDraw(tilesNeeded)
         setBag(bag.length)
@@ -30,7 +31,7 @@ export default function Player({ setBag }) {
             return hand.map(tile =>
                 <Draggable
                     grid={[5, 5]}>
-                    <div id='gfg' className={styles.tile}>
+                    <div className={styles.tile}>
                         <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span></div>
                 </Draggable>
             );
