@@ -15,7 +15,7 @@ const GameWindow = () => {
     const [currentPlay, setCurrentPlay] = useState([])
     const [currentHand, setCurrentHand] = useState([])
     const [waiting, setWaiting] = useState(false)
-    const secondWaiting = useRef(true)
+    const secondWaiting = useRef(false)
 
 
     const handleActive = () => {
@@ -23,7 +23,7 @@ const GameWindow = () => {
     };
 
     const toggleWaiting = () => {
-        const newWaiting = !waiting;
+        const newWaiting = !secondWaiting.current;
         secondWaiting.current = !secondWaiting.current;
         console.log("🚀 ~ file: GameWindow.jsx ~ line 25 ~ toggleWaiting ~ newWaiting", newWaiting)
         setWaiting(newWaiting);
@@ -57,6 +57,10 @@ const GameWindow = () => {
         setCurrentHand([...currentHand, ...tileArray])
     }
 
+    const clearPlay = () => {
+        setCurrentPlay([])
+    }
+
     const handleSubmit = () => {
         if (!waiting) {
             socket.emit("CHECK_WORD", ({ tileArray: currentPlay, gameState: currentGame.current }))
@@ -70,11 +74,11 @@ const GameWindow = () => {
             window.alert(response)
         })
 
-        socket.on("WORD_PLAYED", updatedGame => {
+        socket.on("WORD_PLAYED", ({ updatedGame, lastPlayed }) => {
             console.log('WORD_PLAYED')
             currentGame.current = updatedGame;
             setActive(true);
-            setWaiting(secondWaiting.current)
+            toggleWaiting();
             console.log("🚀 ~ file: GameWindow.jsx ~ line 76 ~ useEffect ~ secondWaiting.current", secondWaiting.current)
         })
 
@@ -96,6 +100,7 @@ const GameWindow = () => {
                         addTile={addTile}
                         currentHand={currentHand}
                         seedHand={seedHand}
+                        clearPlay={clearPlay}
                         handleSubmit={handleSubmit}
                         waiting={waiting}
                     />
