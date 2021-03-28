@@ -13,8 +13,11 @@ h2 {
     color: white;
 }
 
-.newButton, .submit, .newGame {
+.netButton, .submit {
     margin-top: 10%;
+}
+
+.newButton, .submit, .newGame {
     padding: 7px;
     background-color: #ECC30B;
     color: #0A2239;
@@ -41,6 +44,10 @@ h2 {
     height: 70px;
 }
 
+.icons:hover {
+    cursor: pointer;
+}
+
 .create {
     color: white;
     font-size: 14pt;
@@ -60,7 +67,11 @@ label :checked + img {
 }
 
 .waiting {
-    margin-top: 50px;
+    margin-bottom: 25px;
     font-size: 30pt;
     color: indianred;
+}
+
+.lobby {
+    margin-bottom: 50px;
 }
