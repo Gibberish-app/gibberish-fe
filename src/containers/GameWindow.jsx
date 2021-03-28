@@ -28,7 +28,6 @@ const GameWindow = () => {
     const toggleWaiting = () => {
         const newWaiting = !secondWaiting.current;
         secondWaiting.current = !secondWaiting.current;
-        console.log("🚀 ~ file: GameWindow.jsx ~ line 25 ~ toggleWaiting ~ newWaiting", newWaiting)
         setWaiting(newWaiting);
 
     }
@@ -77,19 +76,14 @@ const GameWindow = () => {
         })
 
         socket.on("WORD_PLAYED", ({ updatedGame, lastPlayed }) => {
-            console.log('WORD_PLAYED')
             currentGame.current = updatedGame;
             setActive(true);
             toggleWaiting();
-            console.log("🚀 ~ file: GameWindow.jsx ~ line 76 ~ useEffect ~ secondWaiting.current", secondWaiting.current)
         })
 
         socket.on("GAME_OVER", ({ updatedGame, lastPlayed }) => {
-            console.log('GAME_OVER');
             setGameOver(true);
-
         })
-
     }, [socket])
 
     return (

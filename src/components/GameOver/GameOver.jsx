@@ -9,9 +9,7 @@ export default function GameOver({ currentGame }) {
 
     return (
         <div className={styles.gameOver}>
-
             <h6 className={styles.overText}>GAME OVER!</h6>
-
             <img src={`/avatars/${currentGame.current.users[0].avatar}.png`} />
             <span>{currentGame.current.users[0].userName}</span>
             <p>Score: {currentGame.current.users[0].score}</p>

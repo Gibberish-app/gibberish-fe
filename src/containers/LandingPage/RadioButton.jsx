@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './LandingPage.css';
 
 const RadioButton = ({ icon, avatarChecked, handleAvatarChange }) => {
-
     return (
         <label>
             <input

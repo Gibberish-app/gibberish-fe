@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from './LandingPage.css'
+import React from 'react';
+import styles from './LandingPage.css';
 
 const WelcomeScreen = ({ handleNewGame }) => {
 
