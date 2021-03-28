@@ -3,7 +3,7 @@ import { socket } from '../../utils/socket/socket';
 import GameLI from '../../components/GameLI/GameLI'
 import styles from './LandingPage.css'
 
-export default function Lobby({ handleActive, currentUser, setCurrentGame }) {
+export default function Lobby({ handleActive, currentUser, currentGame, handleCurrentGame, toggleWaiting }) {
     const [gameList, setGameList] = useState([])
 
     useEffect(() => {
@@ -16,12 +16,20 @@ export default function Lobby({ handleActive, currentUser, setCurrentGame }) {
         });
 
         socket.on("GAME_CREATED", newGame => {
-            setCurrentGame(newGame);
+            console.log("🚀 ~ file: Lobby.jsx ~ line 24 ~ useEffect ~ newGame ", newGame)
+            toggleWaiting();
+        })
+
+        socket.on("PLAYER_JOINED", newGame => {
+            console.log(newGame)
+            currentGame.current = newGame
+            handleCurrentGame(newGame);
             handleActive();
         })
 
         socket.on("GAME_JOINED", newGame => {
-            setCurrentGame(newGame);
+            currentGame.current = newGame;
+            handleCurrentGame(newGame);
             handleActive();
         })
     }, [socket])

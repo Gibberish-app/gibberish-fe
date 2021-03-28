@@ -1,46 +1,40 @@
 import React, { useState, useEffect } from 'react';
+import { socket } from '../../utils/socket/socket';
 import styles from './player.css';
 
-export default function Player({ currentGame, addTile }) {
-    const { bag } = currentGame;
-    const [hand, setHand] = useState([])
-
-
-    const [draw, setDraw] = useState(7)
-    let currentHand = []
+export default function Player({ currentGame, addTile, currentHand, seedHand, handleSubmit }) {
+    const { bag } = currentGame.current;
 
     const drawTiles = (tilesNeeded) => {
-        for (let i = 0; i < draw; i++) {
+        const localHand = [];
+        for (let i = 0; i < tilesNeeded; i++) {
 
             let index = Math.floor(Math.random() * bag.length)
-            currentHand.push(bag[index])
-            tilesNeeded--
+            localHand.push(bag[index])
             if (index !== -1) {
                 bag.splice(index, 1);
             }
         }
-        setHand(currentHand)
-        setDraw(tilesNeeded)
+        seedHand(localHand)
     }
 
     const handleTileClick = (tile, index) => {
-        addTile(tile);
-        hand.splice(index, 1)
+        addTile(tile, index);
     }
 
     useEffect(() => {
         drawTiles(7)
     }, [])
 
-    const handleSubmit = () => {
 
-    }
+
 
     const renderTiles = () => {
-        if (hand) {
-            return hand.map((tile, index) =>
+        if (currentHand) {
+            return currentHand.map((tile, index) =>
                 <div className={styles.tile}
-                    onClick={() => handleTileClick(tile, index)}>
+                    onClick={() => handleTileClick(tile, index)}
+                    key={`hand${index}`}>
                     <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span>
                 </div >
             );
@@ -51,10 +45,13 @@ export default function Player({ currentGame, addTile }) {
         <div className={styles.player}>
             <div className={styles.rackBoard}>
                 <div className={styles.rack}>
-                    {hand ? renderTiles() : null}
+                    {currentHand ? renderTiles() : null}
                 </div>
             </div>
-                <button className={styles.submit}>Submit Word</button>
+            <button
+                className={styles.submit}
+                onClick={handleSubmit}
+            >Submit Word</button>
         </div>
     )
 }

@@ -5,20 +5,22 @@ import styles from './LandingPage.css';
 import Lobby from './Lobby';
 import Header from '../../components/header/Header';
 
-const LandingPage = ({ handleActive, setCurrentUser, setCurrentGame }) => {
+const LandingPage = ({ handleActive, currentUser, handleCurrentGame, toggleWaiting, currentGame }) => {
 
     const handleEnterLobby = (user) => {
         setDisplayScreen(<Lobby
             handleActive={handleActive}
-            setCurrentGame={setCurrentGame}
             currentUser={user}
+            currentGame={currentGame}
+            handleCurrentGame={handleCurrentGame}
+            toggleWaiting={toggleWaiting}
         />);
     }
 
     const handleNewGame = () => {
         setDisplayScreen(<CreateUser
             handleEnterLobby={handleEnterLobby}
-            setCurrentUser={setCurrentUser} />);
+            currentUser={currentUser} />);
     }
 
     const [displayScreen, setDisplayScreen] = useState(<WelcomeScreen
