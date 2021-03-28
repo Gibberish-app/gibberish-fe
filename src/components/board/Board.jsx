@@ -7,26 +7,20 @@ const fullBoard = [
     [0, 0, 0, 0, 0, 0, 0]
 ]
 
-const Board = ({ setSpotPosition }) => {
+const Board = ({ currentPlay }) => {
     const boardTilePosition = []
 
     useEffect(() => {
-        setSpotPosition(boardTilePosition)
-    }, [])
+        console.log(currentPlay)
+    }, [currentPlay])
 
     return (
         <div className={styles.board}>
             <table>
                 <tbody>
-                    {fullBoard.map(row =>
+                    {currentPlay.map(row =>
                         <tr>
-                            {row.map(col => <td
-
-                                ref={row => {
-                                    if (!row) return;
-                                    boardTilePosition.push(row.getBoundingClientRect());
-                                }
-                                }>{Cells(boardMap[col])}</td>)}
+                            {row.letter}
                         </tr>
                     )}
                 </tbody>
