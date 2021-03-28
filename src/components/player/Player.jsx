@@ -22,7 +22,6 @@ export default function Player({ currentGame, addTile, currentHand, seedHand, ha
         addTile(tile, index);
     }
 
-
     useEffect(() => {
         console.log('waiting changed')
         if (waiting === false) {
