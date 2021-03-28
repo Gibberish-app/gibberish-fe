@@ -87,6 +87,7 @@ const GameWindow = () => {
         socket.on("GAME_OVER", ({ updatedGame, lastPlayed }) => {
             console.log('GAME_OVER');
             setGameOver(true);
+
         })
 
     }, [socket])
@@ -94,24 +95,26 @@ const GameWindow = () => {
     return (
         <div>
             {active ?
-                <div>
-                    <Header />
-                    <Board
-                        currentPlay={currentPlay}
-                        removeTile={removeTile}
-                    />
-                    <GameInfo
-                        currentGame={currentGame} />
-                    <Player
-                        currentGame={currentGame}
-                        addTile={addTile}
-                        currentHand={currentHand}
-                        seedHand={seedHand}
-                        clearPlay={clearPlay}
-                        handleSubmit={handleSubmit}
-                        waiting={waiting}
-                    />
-                </div>
+                gameOver ? <GameOver
+                    currentGame={currentGame} /> :
+                    <div>
+                        <Header />
+                        <Board
+                            currentPlay={currentPlay}
+                            removeTile={removeTile}
+                        />
+                        <GameInfo
+                            currentGame={currentGame} />
+                        <Player
+                            currentGame={currentGame}
+                            addTile={addTile}
+                            currentHand={currentHand}
+                            seedHand={seedHand}
+                            clearPlay={clearPlay}
+                            handleSubmit={handleSubmit}
+                            waiting={waiting}
+                        />
+                    </div>
                 :
                 <LandingPage
                     handleActive={handleActive}
@@ -120,16 +123,11 @@ const GameWindow = () => {
                     handleCurrentGame={handleCurrentGame}
                     toggleWaiting={toggleWaiting}
                 />
+
             }
             {waiting ?
                 <div>
                     <WaitingPopup width={width} />
-                </div>
-                : null
-            }
-            {gameOver ?
-                <div>
-                    <GameOver />
                 </div>
                 : null
             }
