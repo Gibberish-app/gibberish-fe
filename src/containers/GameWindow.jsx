@@ -10,7 +10,6 @@ const GameWindow = () => {
     const [bag, setBag] = useState(0)
     const [currentUser, setCurrentUser] = useState({})
     const [currentGame, setCurrentGame] = useState({})
-    const [bag, setBag] = useState([])
     const [spotPosition, setSpotPosition] = useState([])
     const handleActive = () => {
         setActive(true);
