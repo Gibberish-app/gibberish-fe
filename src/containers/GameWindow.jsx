@@ -7,6 +7,7 @@ import Header from '../components/header/Header';
 
 const GameWindow = () => {
     const [active, setActive] = useState(false);
+    const [bag, setBag] = useState(0)
     const [currentUser, setCurrentUser] = useState({})
     const [currentGame, setCurrentGame] = useState({})
 
@@ -22,7 +23,8 @@ const GameWindow = () => {
                     <Board />
                     <GameInfo
                         currentUser={currentUser}
-                        currentGame={currentGame} />
+                        currentGame={currentGame}
+                        bag={bag} />
                     <Player setBag={setBag} />
                 </div>
                 :
