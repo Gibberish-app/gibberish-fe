@@ -35,7 +35,7 @@ export default function Lobby({ handleActive, currentUser, setCurrentGame }) {
     }
 
     return (
-        <div>
+        <div className={styles.lobby}>
             <button
                 className={styles.newGame}
                 onClick={createGame}>

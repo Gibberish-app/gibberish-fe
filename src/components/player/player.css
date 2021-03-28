@@ -1,12 +1,16 @@
-.rack {
+.rackBoard {
     margin-top: 15px;
-    margin-left: 160px;
+    margin-left: 190px;
     margin-bottom: 50px;
+    width: 500px;
+    height: 60px;
+    background-color: indianred;
+}
+
+.rack {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    width: 500px;
-    background-color: indianred;
 }
 
 .tile {

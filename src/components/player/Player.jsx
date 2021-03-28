@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import Draggable from 'react-draggable';
+import React, { useState, useEffect } from 'react';
 import styles from './player.css';
 
 export default function Player({ currentGame, addTile }) {
     const { bag } = currentGame;
     const [hand, setHand] = useState([])
 
+
     const [draw, setDraw] = useState(7)
     let currentHand = []
-    let tilesNeeded = 7
 
     const drawTiles = (tilesNeeded) => {
         for (let i = 0; i < draw; i++) {
@@ -33,22 +32,29 @@ export default function Player({ currentGame, addTile }) {
         drawTiles(7)
     }, [])
 
+    const handleSubmit = () => {
+
+    }
+
     const renderTiles = () => {
         if (hand) {
-
             return hand.map((tile, index) =>
                 <div className={styles.tile}
                     onClick={() => handleTileClick(tile, index)}>
                     <span className={styles.letter}>{tile.letter}<sub className={styles.value}>{tile.value}</sub></span>
                 </div >
-
             );
         }
     };
 
     return (
-        <div className={styles.rack}>
-            {hand ? renderTiles() : null}
+        <div>
+            <div className={styles.rackBoard}>
+                <div className={styles.rack}>
+                    {hand ? renderTiles() : null}
+                </div>
+            </div>
+                <button className={styles.submit}>Submit Word</button>
         </div>
     )
 }

@@ -1,7 +1,11 @@
 .gameli {
-    margin-top: 50px;
+    margin-top: 25px;
     font-size: 20pt;
     color: white;
+}
+
+.gameli:hover {
+    cursor: pointer;
 }
 
 .gameli img {

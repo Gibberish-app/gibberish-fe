@@ -10,6 +10,12 @@ html {
     min-width: 1000px;
 }
 
+.board {
+    width: 700px;
+    height: 275px;
+    border: solid 1px transparent;
+}
+
 table {
     margin-left: 240px;
     margin-top: 200px;
