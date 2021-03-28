@@ -20,8 +20,6 @@ export default function Player({ currentGame, addTile }) {
                 bag.splice(index, 1);
             }
         }
-
-
         setHand(currentHand)
         setDraw(tilesNeeded)
     }

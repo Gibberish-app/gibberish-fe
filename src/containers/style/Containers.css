@@ -13,14 +13,19 @@ html {
 table {
     margin-left: 240px;
     margin-top: 200px;
-    background-color: #ECC30B;
 }
 
-tr, td {
+td {
+    margin: 5px;
+    height: 45px;
+    width: 47px;
+    font-size: 20pt;
     text-align: center;
-    font-weight: 900;
+    padding-top: 2px;
+    background-color: #ECC30B;
+    border: solid 3px #0A2239;
 }
 
-.cells {
-    padding-top: 7px;
+.value {
+    font-size: 10pt;
 }
